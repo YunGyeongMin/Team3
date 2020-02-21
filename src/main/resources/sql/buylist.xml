@@ -24,6 +24,7 @@
        <if test="no != null">
        		and o.no = #{no}
        </if>
+       ORDER BY reg DESC;
    </select>
 <!--    15일전 구매목록 가져오기 -->
    <select id="getblist" resultType="Map">

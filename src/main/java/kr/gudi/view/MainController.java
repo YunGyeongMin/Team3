@@ -17,17 +17,17 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String main() {
-		return "redirect:/main/index";
+		return "redirect:main/index";
 	}
 	
 	@GetMapping("/header")
 	public String header(HttpSession session) {
-		return "/main/header";
+		return "main/header";
 	}
 	
 	@GetMapping("/footer")
 	public String footer() {
-		return "/main/footer";
+		return "main/footer";
 	}
 	
 	@ControllerAdvice

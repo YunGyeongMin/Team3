@@ -79,7 +79,7 @@
 		<div class="modal hidden M3">
 		<div class = "modal__overlay"></div>
 		<div class="modal__content">
-		<span class="close" onclick="closeModal2()">&times;</span> 
+		<span class="close" onclick="closeModal()">&times;</span> 
 			<h1 class = "title2">상품수정</h1>
 			<hr>
 			<div class = "inputarea">

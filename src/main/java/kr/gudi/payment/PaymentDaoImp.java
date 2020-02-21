@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.gudi.login.UserBean;
+
 @Repository
 public class PaymentDaoImp implements PaymentDao {
 
@@ -18,8 +20,8 @@ public class PaymentDaoImp implements PaymentDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> pickCart(Map<String, Object> ParamMap) {
-		return session.selectList("payment.pickCart", ParamMap);
+	public List<Map<String, Object>> pickCart(UserBean ub) {
+		return session.selectList("payment.pickCart", ub);
 	}
 
 	@Override

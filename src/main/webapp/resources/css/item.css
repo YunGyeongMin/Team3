@@ -15,6 +15,7 @@ aside ul li{
 	font-size: 1rem;
 	background-color: black;
 	color: white;
+	text-align: center;
 	font-weight: bold;
 	cursor: pointer;
 	border-bottom: 1px solid white;

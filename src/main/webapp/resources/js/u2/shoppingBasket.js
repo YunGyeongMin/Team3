@@ -255,7 +255,7 @@ function selectCartSend() {
     console.log(paramList);
     return;
     $.ajax({
-        url: "selectCartView",
+        url: "/main/selectCartView",
         type: "post",
         data: JSON.stringify(paramList),
         contentType: "application/json; charset=UTF-8"
@@ -271,7 +271,7 @@ function selectCartSend() {
 	        return;
 	    }
 	 $.ajax({
-	        url: "allselectCart",
+	        url: "/main/allselectCart",
 	        type: "post"
 	    }).done(function(data) {
 	    	location.href='/main/payment';

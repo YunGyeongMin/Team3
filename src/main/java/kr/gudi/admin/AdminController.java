@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.gudi.login.UserBean;
+
 @Controller 
 public class AdminController { 
 
@@ -21,8 +23,11 @@ public class AdminController {
 	
 	@RequestMapping(value="bank", method=RequestMethod.POST)
 	public @ResponseBody int setbank(@RequestBody Map<String, Object> paramMap, HttpSession session) {
-		Map<String, Object> noMap = (Map<String, Object>) session.getAttribute("User");
-		paramMap.put("no", noMap.get("no"));
+		Object obj = session.getAttribute("User");
+		if(obj != null) {
+			UserBean ub = (UserBean) obj;
+			paramMap.put("no", ub.getNo());
+		}
 		return adminService.setbank(paramMap);
 	}
 	

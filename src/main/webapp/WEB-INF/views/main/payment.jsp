@@ -127,7 +127,7 @@
                     <div>
                     	<input id="payCB" type="hidden" value="C">
                         <span class="btn" onclick="closeModal()">결제취소</span>
-                        <span id = "setPay" class="btn"><a>결제하기</a></span>
+                        <span id = "setPay" class="btn">결제하기</span>
                     </div>
                 </div>
             </div>

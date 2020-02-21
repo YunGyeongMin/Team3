@@ -11,7 +11,7 @@
 		FROM product;
 	</select>
 	<select id="productList" resultType="Map">
-		SELECT * FROM product;
+		SELECT * FROM product ORDER BY `no` DESC;
 	</select>
 	<select id="findProduct" resultType="Map">
 		SELECT * FROM product WHERE no = #{no};

@@ -1,6 +1,17 @@
 /**
  * adminPage JS
  */
+/*Modal*/
+function openModal(MDnum) {
+	 modal = document.querySelector(MDnum);
+	 modal.classList.remove("hidden");
+	 overlay = document.getElementsByClassName("modal__overlay");
+	 openButton = document.getElementById("open");
+}
+function closeModal2() {
+	 closeBtn = document.getElementsByClassName("close");
+	 modal.classList.add("hidden");
+}
 $(document).ready(function(){
 	/*Tab Menu*/
 	$("#nav_tab li").off().on("click", function(){

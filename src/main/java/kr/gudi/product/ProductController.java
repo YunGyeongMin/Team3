@@ -34,7 +34,7 @@ public class ProductController {
 	
 	@RequestMapping(value = "setImage", method = RequestMethod.POST)
 	public @ResponseBody boolean setImage(@RequestParam("tImg") MultipartFile tImg, @RequestParam("dImg") MultipartFile dImg) {
-		return ps.setImage(tImg, dImg);
+		return ps.setImage(null, tImg, dImg);
 	}
 	
 	@RequestMapping(value = "upImage", method = RequestMethod.POST)
@@ -43,7 +43,7 @@ public class ProductController {
 		MultipartFile tImg =  mhsr.getFile("tImg");
 		MultipartFile dImg =  mhsr.getFile("dImg");
 		int no = Integer.parseInt(res.getParameter("no"));
-		return ps.upImage(tImg, dImg, no);
+		return ps.upImage(null, tImg, dImg, no);
 	}
 	
 	@RequestMapping(value="productStatus", method=RequestMethod.POST)

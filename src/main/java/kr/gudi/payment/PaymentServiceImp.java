@@ -8,6 +8,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.gudi.login.UserBean;
+
 @Service
 public class PaymentServiceImp implements PaymentService {
 
@@ -19,8 +21,8 @@ public class PaymentServiceImp implements PaymentService {
 	}
 
 	@Override
-	public List<Map<String, Object>> pickCart(Map<String, Object> ParamMap) {
-		return paymentDao.pickCart(ParamMap);
+	public List<Map<String, Object>> pickCart(UserBean ub) {
+		return paymentDao.pickCart(ub);
 	}
 
 	@Override

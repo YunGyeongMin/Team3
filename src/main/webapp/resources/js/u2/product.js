@@ -34,6 +34,7 @@ function repairProduct() {
         	}
         }
         if (data.soldOut === "Y") $(".soldOut")[0].checked = true;
+        
     });
 }
 function closeModal() {
@@ -100,7 +101,8 @@ var fun_Han = function(){
 	                data: form
 	            }).done(function(data) {
 	                alert("등록성공!");
-	                closeModal()
+	                closeModal();
+	                $("#productList").load(window.location.href + "#productList");
 	            });
 	        } else alert("등록실패!");
 	    });
@@ -160,6 +162,7 @@ var fun_Han = function(){
 	    	   $("#rThumbnailImg").val("");
 	    	   $("#rDetailImg").val("");
 	    	   closeModal();
+	    	   $("#productList").load(window.location.href + "#productList");
 	       } else alert("수정실패!");
 	    });
 	});

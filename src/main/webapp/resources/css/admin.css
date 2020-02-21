@@ -47,7 +47,7 @@ ul::after, h3::after{
     cursor:pointer;
     display:inline-block;
     height:1.875rem;
-    background:#777;
+    background:#383838;
     text-align:center;
 }
 input[type=text] {
@@ -294,6 +294,7 @@ cursor: pointer;
 .cancel_name_li3{float: left; width: 36%; min-height: 1.875rem; text-align:  center; border: 1px solid; border-color: white; color: orange; line-height: 1.875rem;}
 .cancel_inventory_li1{float: left; width: 5%; min-height: 5rem; text-align:  center; border: 1px solid; border-color: white; line-height: 5rem;}
 .cancel_inventory_li2{float: left; width: 13.2%; min-height: 5rem; text-align:  center; border: 1px solid; border-color: white; line-height: 5rem;}
+#faq_inventory{ overflow-y: scroll; height: 350px;}
 .cancel_inventory_li3{float: left; width: 36%; min-height: 5rem; text-align:  center; border: 1px solid; border-color: white; line-height: 2.5rem; overflow-y: scroll;  height: 80px;}
 .btnset button{border:0; float: right; margin:0.625rem 0 0.625rem 0.625rem; background-color: #494945; color: white; cursor: pointer; padding: 0.875rem;}
 .btnset{border: 1px 0; border-color: white; height: 100%; width: calc(100% - 3.75rem); float: left; margin: 0 1.875rem;}

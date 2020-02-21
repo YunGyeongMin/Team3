@@ -48,10 +48,10 @@ public class PaymentController {
 	}
 	
 	@RequestMapping(value="/itemPay", method = RequestMethod.POST)
-	public String itemPay(@RequestBody Map<String, Object> paramMap){
+	public @ResponseBody int itemPay(@RequestBody Map<String, Object> paramMap){
 	System.out.println("paramMap : " + paramMap);
 	itemlist.add(paramMap);
-		return "main/payment";
+		return 1;
 	}
 	
 	
@@ -76,13 +76,17 @@ public class PaymentController {
 		System.out.println("전체상품결제");
 		if(itemlist.size() == 0 && itemlist2.size() == 0) {
 			Map<String, Object> paymentMap = new HashMap<String, Object>();
-			paymentMap = (Map<String, Object>) session.getAttribute("User");
+//			paymentMap = (Map<String, Object>) session.getAttribute("User");
+			Object obj = session.getAttribute("User");
 			if(paymentMap != null) {
-				model.addAttribute("cartResult",paymentService.pickCart(paymentMap));
+				UserBean ub = (UserBean) obj;
+				model.addAttribute("cartResult",paymentService.pickCart(ub));
 				System.out.println("model : "+ model);
 			}
+//			return itemlist.size();
 			return "main/page/payment/paymentCart";
 		} 
+//			return -1;
 			return "main/page/payment/error";
 	}
 	

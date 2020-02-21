@@ -6,7 +6,7 @@
  	SELECT depositor,bank FROM bank;
  </select>
    
- <select id="pickCart" parameterType="Map" resultType="Map">
+ <select id="pickCart" parameterType="kr.gudi.login.UserBean" resultType="Map">
  	SELECT c.uno,
 		 p.sname,
 		 p.price,

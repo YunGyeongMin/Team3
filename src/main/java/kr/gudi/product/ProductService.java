@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
@@ -16,8 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductService {
 
 	@Autowired	ProductDao pd;
-	
-	private final String ROOT = "D:/IDE/workspace/TeamProject/src/main/webapp";
 	
 	public Map<String, Object> productStatus() {
 		return pd.productStatus();
@@ -39,12 +38,12 @@ public class ProductService {
 		return pd.upProduct(paramMap);
 	}
 	
-	public boolean setImage(MultipartFile tImg, MultipartFile dImg) {
+	public boolean setImage(HttpSession session, MultipartFile tImg, MultipartFile dImg) {
 		int no = pd.getImgNo();
-		String tfilePath = "/resources/upload/t" + no + ".png";
-		String tPath = ROOT + tfilePath;
-		String dfilePath = "/resources/upload/d" + no + ".png";
-		String dPath = ROOT + dfilePath;
+		String tfilePath = session.getServletContext().getRealPath("resources/upload/t" + no + ".png");
+		String tPath = "/resources/upload/t" + no + ".png";
+		String dfilePath = session.getServletContext().getRealPath("resources/upload/d" + no + ".png");
+		String dPath = "/resources/upload/d" + no + ".png";
 		System.out.println(tPath);
 		System.out.println(dPath);
 		Map<String, Object> img = new HashMap<String, Object>();
@@ -67,18 +66,18 @@ public class ProductService {
 //		return pd.setImage(tImg, dImg);
 	}
 	
-	public boolean upImage(MultipartFile tImg, MultipartFile dImg, int no) {
+	public boolean upImage(HttpSession session, MultipartFile tImg, MultipartFile dImg, int no) {
 		String tfilePath = null;
 		String dfilePath = null;
 		String tPath = null;
 		String dPath = null;
 		if(tImg != null) {
-			tfilePath = "/resources/upload/t" + no + ".png";
-			tPath = ROOT + tfilePath;
+			tfilePath = session.getServletContext().getRealPath("resources/upload/t" + no + ".png");
+			tPath = "/resources/upload/t" + no + ".png";
 		}
 		if(dImg != null) {
-			dfilePath = "/resources/upload/d" + no + ".png";
-			dPath = ROOT + dfilePath;
+			dfilePath = session.getServletContext().getRealPath("resources/upload/d" + no + ".png");
+			dPath = "/resources/upload/d" + no + ".png";
 		}
 		
 		System.out.println(tPath);

@@ -45,6 +45,6 @@
 				</form>
 			</div>	
 			
-			<div class = "item_inventory" id = "faq_inventory" ></div>
+			<div class = "item_inventory scroll" id = "faq_inventory" ></div>
 </body>
 </html>

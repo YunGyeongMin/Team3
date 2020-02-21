@@ -15,12 +15,10 @@ $(document).ready(function(){
 	      op.type = "POST";
 	      op.data = login;
 	      $.ajax(op).done(function(d){
-	    	 console.log(d);
 	         if(d) {
-	            alert("login1성공");
 	            location.href = "/main/index";
 	         } else {
-	            alert("login1실패");
+	            alert("login실패");
 	            location.href = "/main/loginTeam";
 	         }
 	      });
@@ -39,7 +37,6 @@ $(document).ready(function(){
 	      op.type = "POST";
 	      op.data = idfind;
 	      $.ajax(op).done(function(d){
-//		    	 console.log(d);
 		         if(d.code == 1) {
 		            alert("id : " + d.data);	       
 		            location.href = "/main/loginTeam";
@@ -63,7 +60,6 @@ $(document).ready(function(){
 	      op.type = "POST";
 	      op.data = params;
 	      $.ajax(op).done(function(d){
-	    	 console.log(d);
 	    	 if(d.code == 1) {
 	    		 alert("임시 비밀번호 전송 되었습니다.")
 	    		 location.href = "/main/loginTeam";

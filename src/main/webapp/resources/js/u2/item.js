@@ -14,6 +14,24 @@ $(document).ready(function() {
         if (window.scrollY >= relativeTop) el.classList.add("showBar");
         else el.classList.remove("showBar");
     });
+    
+    $(".js-count").on("focusout", function() {
+        this.value = 1;
+    });
+
+    $(".js-count").on("keyup", function() {
+        if (/\D/.test(this.value)) {
+            this.value = this.value.replace(/\D/g, "");
+            alert("숫자만 입력가능합니다.");
+        }
+        if (this.value < 1 && this.value != "") {
+            this.value = 1;
+            alert("1개 이상을 선택하세요.");
+        } else if (this.value > 99) {
+            this.value = 99;
+            alert("99개 이하를 선택하세요.");
+        }
+    });
 });
 // 찜한목록 추가 삭제를 위한 Function
 
@@ -75,28 +93,12 @@ function viewColors(colors) {
     }
 }
 
-$(".js-count").on("focusout", function() {
-    this.value = 1;
-});
-
-$(".js-count").on("keyup", function() {
-    if (/\D/.test(this.value)) {
-        this.value = this.value.replace(/\D/g, "");
-        alert("숫자만 입력가능합니다.");
-    }
-    if (this.value < 1 && this.value != "") {
-        this.value = 1;
-        alert("1개 이상을 선택하세요.");
-    } else if (this.value > 99) {
-        this.value = 99;
-        alert("99개 이하를 선택하세요.");
-    }
-});
 var params = {
     pno: $("#no").val(),
     count: $(".count").val(),
     color: $("#colorList").val()
 };
+
 function buyNow(userInfo) {
     if ($("#colorList").val() === "") {
         alert("색상을 선택하세요.");
@@ -115,7 +117,7 @@ function buyNow(userInfo) {
                 };
             console.log(params);
                 $.ajax({
-                    url: "itemPay",
+                    url: "/main/itemPay",
                     type: "post",
                     data: JSON.stringify(params),
                     contentType: "application/json; charset=UTF-8"

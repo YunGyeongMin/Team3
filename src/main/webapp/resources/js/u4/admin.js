@@ -86,7 +86,8 @@ var fun_Kmin1 = function(){
 			data : JSON.stringify(params),
 			contentType : "application/json; charset=UTF-8"
 		}).done(function(d){
-			closeModal();
+			alert("결제정보 등록완료!");
+			closeModal2();
 		});
 	
 	});

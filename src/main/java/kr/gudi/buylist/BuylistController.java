@@ -69,6 +69,7 @@ public class BuylistController {
    
    @RequestMapping(value = "/mypageMain", method=RequestMethod.POST)
 	public @ResponseBody List<Map<String, Object>> getMypageMain() {
+	   System.out.println("In!!");
 		return buylistService.getMypageMain();
    }
    
