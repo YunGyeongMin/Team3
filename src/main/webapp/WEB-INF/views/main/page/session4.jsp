@@ -28,8 +28,8 @@
 		</div>
 			<h3 class = "subtitle">문의목록</h3>
 			<div class = "btnset">
-				<button type="button">처리완료정렬</button>
-				<button type="button">미처리정렬</button>
+				<button type="button" id="processY">처리완료정렬</button>
+				<button type="button" id="processN">미처리정렬</button>
 				<button type="button" id="process">처리완료</button>
 			</div>	
 			<div class = "item_inventory2">	

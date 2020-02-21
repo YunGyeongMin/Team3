@@ -138,7 +138,7 @@ $(document).ready(function(){
 					color : $(".color").eq(i).text(),
 					price : $(".price").eq(i).text(),
 					quantity : $(".amount").eq(i).text(),
-					sumPrice : $("#finalPrice").attr("data-sumPrice"),
+					sumPrice : $(".sumPrice").eq(i).attr("data-finalprice"),
 					payCB : $("#payCB").val(),
 					address1 : $("#address1").val(),
 					address2 : $("#address2").val(),

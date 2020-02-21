@@ -40,7 +40,7 @@
 					<ul>
 						<li>
 							<label class = "li_tatle" for = "price">판매가</label>
-							<input class = "input_price" type = "text" id = "price" name="price" required="required" placeholder="EX : 48,500">	 
+							<input class = "input_price" type = "number" id = "price" name="price" required="required" placeholder="EX : 48,500">	 
 						</li>
 					</ul>
 					<ul>	
@@ -88,7 +88,7 @@
 						<li>
 							<input type="hidden" id="upno">
 							<label class = "li_tatle" for = "item_name">상품명</label>
-							<input class = "input_name" type = "text" id = "rname" required="required">
+							<input class = "input_name" type = "number" id = "rname" required="required">
 						</li>	
 					</ul>	
 					<ul>

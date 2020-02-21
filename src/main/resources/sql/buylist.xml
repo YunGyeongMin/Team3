@@ -21,9 +21,9 @@
        INNER JOIN `product` AS p
        ON (p.`no` = o.pno)    
        WHERE o.uno= #{uno}
-       <if test="no != null">
-       		and o.no = #{no}
-       </if>
+<!--        <if test="no != null"> -->
+<!--        		and o.no = #{no} -->
+<!--        </if> -->
        ORDER BY reg DESC;
    </select>
 <!--    15일전 구매목록 가져오기 -->

@@ -25,10 +25,10 @@
    <form class = "form" >
 
 			<select name= date id="selectdate">
-					<option value=term15>15일</option>
-					<option value=termOneMonth>1개월</option>
-					<option value=termOneMonth>3개월</option>
-					<option value=termSixMonth>6개월</option>
+					<option value="15">15일</option>
+					<option value="1">1개월</option>
+					<option value="3">3개월</option>
+					<option value="6">6개월</option>
 			</select>
 
 
@@ -44,7 +44,7 @@
 			  <li class = "li2">상품정보</li>
 			  <li>결제금액</li>
 			  <li>처리현황</li>
-			  <li>배송조회</li>
+<!-- 			  <li>배송조회</li> -->
 <!-- 			  <li>수취확인</li> -->
 		  </ul>
 		  

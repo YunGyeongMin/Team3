@@ -42,7 +42,7 @@ function checkOnly(chk){
 			  <li class = "li2">상품정보</li>
 			  <li>결제금액</li>
 			  <li>처리현황</li>
-			  <li>배송조회</li>
+<!-- 			  <li>배송조회</li> -->
 
 		  </ul>
 		  
