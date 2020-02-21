@@ -47,13 +47,13 @@ public class ProductService {
 		System.out.println(tPath);
 		System.out.println(dPath);
 		Map<String, Object> img = new HashMap<String, Object>();
-		img.put("tPath", tfilePath);
-		img.put("dPath", dfilePath);
+		img.put("tPath", tPath);
+		img.put("dPath", dPath);
 		img.put("no", no);
 		
 		try {
-			FileUtils.copyInputStreamToFile(tImg.getInputStream(), new File(tPath));
-			FileUtils.copyInputStreamToFile(dImg.getInputStream(), new File(dPath));
+			FileUtils.copyInputStreamToFile(tImg.getInputStream(), new File(tfilePath));
+			FileUtils.copyInputStreamToFile(dImg.getInputStream(), new File(dfilePath));
 			pd.setImage(img);
 			return true;
 			
@@ -83,15 +83,15 @@ public class ProductService {
 		System.out.println(tPath);
 		System.out.println(dPath);
 		Map<String, Object> img = new HashMap<String, Object>();
-		img.put("tPath", tfilePath);
-		img.put("dPath", dfilePath);
+		img.put("tPath", tPath);
+		img.put("dPath", dPath);
 		img.put("no", no);
 		
 		try {
 			if(tImg != null)
-				FileUtils.copyInputStreamToFile(tImg.getInputStream(), new File(tPath));
+				FileUtils.copyInputStreamToFile(tImg.getInputStream(), new File(tfilePath));
 			if(dImg != null)
-				FileUtils.copyInputStreamToFile(dImg.getInputStream(), new File(dPath));
+				FileUtils.copyInputStreamToFile(dImg.getInputStream(), new File(dfilePath));
 			pd.setImage(img);
 			return true;
 			
