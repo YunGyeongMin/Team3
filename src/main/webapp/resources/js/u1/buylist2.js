@@ -25,8 +25,9 @@ $(document).ready(function(){
          type: "get",
          url: "/mypageMain1",
          data: params        	 
-      }).done(function(data){
+      }).done(function(d){
          console.log(d);
+         var data = d.list;
          $("#order_dlist").empty();
          for(var i = 0; i < data.length; i++){
         	 if(data[i].process == "S")	data[i].process = "결제완료";

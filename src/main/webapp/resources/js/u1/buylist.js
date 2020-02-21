@@ -57,8 +57,7 @@ $(document).ready(function(){
 	  option.url = "/mypageMain";
       option.type = "POST";
       option.data = JSON.stringify(param);
-      $.ajax(option).done(function(d){
-    	  var data = d.list;
+      $.ajax(option).done(function(data){
           $("#order_list").empty();
           for(var i = 0; i < data.length; i++){
         	 if(data[i].process === "S")	data[i].process = "결제완료";
