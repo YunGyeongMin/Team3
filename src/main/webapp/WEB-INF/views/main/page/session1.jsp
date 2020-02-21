@@ -88,13 +88,13 @@
 						<li>
 							<input type="hidden" id="upno">
 							<label class = "li_tatle" for = "item_name">상품명</label>
-							<input class = "input_name" type = "number" id = "rname" required="required">
+							<input class = "input_name" type = "text" id = "rname" required="required">
 						</li>	
 					</ul>	
 					<ul>
 						<li>
 							<label class = "li_tatle" for = "price">판매가</label>
-							<input class = "input_price" type = "text" id = "rprice" required="required">	 
+							<input class = "input_price" type = "number" id = "rprice" required="required">	 
 						</li>
 					</ul>
 					<ul>	
