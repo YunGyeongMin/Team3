@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel = "stylesheet" href = "/resources/css/admin.css">
 		<link rel="shortcut icon" type="image/x-icon" href="/resources/images/admin/adminFavicon.png">
-		<title>상품관리 / 관리자 전용</title>
+		<title>상품관리 / 관리자 전용!</title>
 		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
 		<script src="/lib/jquery/3.4.1/dist/jquery.min.js"></script>
 		<script src="/resources/js/u1/adminfaq.js"></script>
