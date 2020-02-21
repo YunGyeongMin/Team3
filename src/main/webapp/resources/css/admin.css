@@ -50,6 +50,18 @@ ul::after, h3::after{
     background:#383838;
     text-align:center;
 }
+input[type=text] {
+    vertical-align:middle;
+    display:inline-block;
+    line-height:1.75rem;
+    font-size:0.6875rem;
+    padding:0;
+    border:0;
+    border:1px solid #777;
+    padding: 0.5rem 2.58rem 0.5rem 0.8rem;
+    -webkit-border-radius:0;
+    -webkit-appearance:none;
+}
 input[type=number] {
     vertical-align:middle;
     display:inline-block;
@@ -66,18 +78,6 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-input[type=text] {
-    vertical-align:middle;
-    display:inline-block;
-    line-height:1.75rem;
-    font-size:0.6875rem;
-    padding:0;
-    border:0;
-    border:1px solid #777;
-    padding: 0.5rem 2.58rem 0.5rem 0.8rem;
-    -webkit-border-radius:0;
-    -webkit-appearance:none;
 }
 input[type=file]{
     vertical-align:middle;
