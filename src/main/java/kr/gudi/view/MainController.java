@@ -17,7 +17,7 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String main() {
-		return "redirect:main/index";
+		return "redirect:/main/index";
 	}
 	
 	@GetMapping("/header")
