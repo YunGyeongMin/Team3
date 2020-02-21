@@ -33,7 +33,7 @@
 	       ON (p.`no` = o.pno)    
 	WHERE (o.`reg` > (NOW() - INTERVAL 15 DAY))
 	AND (o.uno= #{no});
-	 ORDER BY reg DESC;
+	 ORDER BY greg DESC;
    </select>
 <!--    1달전 구매목록 가져오기 -->
    <select id="getomonth" parameterType="kr.gudi.login.UserBean" resultType="Map">
@@ -42,7 +42,7 @@
 	       ON (p.`no` = o.pno)    
 	WHERE (o.`reg` > (NOW() - INTERVAL 1 MONTH))
 	AND (o.uno=  #{no});
-	 ORDER BY reg DESC;
+	 ORDER BY greg DESC;
    </select>
 <!--     3달전 구매목록 가져오기 -->
    <select id="gettmonth" parameterType="kr.gudi.login.UserBean" resultType="Map">
@@ -51,7 +51,7 @@
 	       ON (p.`no` = o.pno)    
 	WHERE (o.`reg` > (NOW() - INTERVAL 3 MONTH))
 	AND (o.uno=  #{no});
-	 ORDER BY reg DESC;
+	 ORDER BY greg DESC;
    </select>
 <!--     6달전 구매목록 가져오기 -->
    <select id="getsmonth" parameterType="kr.gudi.login.UserBean" resultType="Map">
@@ -60,6 +60,6 @@
 	       ON (p.`no` = o.pno)    
 	WHERE (o.`reg` > (NOW() - INTERVAL 6 MONTH))
 	AND (o.uno=  #{no});
-	 ORDER BY reg DESC;
+	 ORDER BY greg DESC;
    </select>
 </mapper>
