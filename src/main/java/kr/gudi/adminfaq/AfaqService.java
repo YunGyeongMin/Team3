@@ -12,5 +12,6 @@ public interface AfaqService {
 	public List<Map<String, Object>> getAdminfaq();
 	public int setAfaq(AfaqBean ab);
 	public List<Map<String, Object>> getInquiry();
-	
+	public List<Map<String, Object>> processN();
+	public List<Map<String, Object>> processY();
 }

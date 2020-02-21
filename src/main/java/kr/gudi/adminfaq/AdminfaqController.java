@@ -50,4 +50,36 @@ public class AdminfaqController {
 	   public @ResponseBody List<Map<String, Object>> getInquiry(){  
 		return afaqService.getInquiry();
 	   }
+	@RequestMapping(value = "/processN", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> processN(HttpSession session) {
+		Map<String, Object> userMap = new HashMap<String, Object> ();
+		Object obj = session.getAttribute("User");
+		if(obj != null) {
+			UserBean ub = (UserBean) obj;
+			List<Map<String,Object>> list = afaqService.processN();
+			if(list != null) {
+				Map<String, Object> uname = new HashMap<String, Object>();
+				uname.put("adminNm", ub.getName());
+				list.add(uname);
+			};
+			userMap.put("list", list);
+		}
+		return userMap;
+	} 
+	@RequestMapping(value = "/processY", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> processY(HttpSession session) {
+		Map<String, Object> userMap = new HashMap<String, Object> ();
+		Object obj = session.getAttribute("User");
+		if(obj != null) {
+			UserBean ub = (UserBean) obj;
+			List<Map<String,Object>> list = afaqService.processY();
+			if(list != null) {
+				Map<String, Object> uname = new HashMap<String, Object>();
+				uname.put("adminNm", ub.getName());
+				list.add(uname);
+			};
+			userMap.put("list", list);
+		}
+		return userMap;
+	} 
 }

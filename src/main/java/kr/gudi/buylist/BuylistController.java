@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.gudi.login.UserBean;
@@ -68,9 +69,10 @@ public class BuylistController {
    }
    
    @RequestMapping(value = "/mypageMain", method=RequestMethod.POST)
-	public @ResponseBody List<Map<String, Object>> getMypageMain() {
-	   System.out.println("In!!");
-		return buylistService.getMypageMain();
+	public @ResponseBody List<Map<String, Object>> getMypageMain(@RequestBody String param, HttpSession session) {
+		UserBean ub = (UserBean) session.getAttribute("User");
+		System.out.println("하이!" + ub);
+	   return buylistService.getMypageMain(param,ub);
    }
    
    @RequestMapping(value="/mypageMain1", method=RequestMethod.PATCH)

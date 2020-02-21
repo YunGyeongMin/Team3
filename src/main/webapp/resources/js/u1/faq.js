@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var e = 0;   // 페이징 전체 수
 	var sp = 0;  // 페이징의 인덱스값  {0 : (1,2) , 1: (3)}
 	var ep = 5;  // 페이지 보여질 수
-	var vCnt = 2;// 한페이지 목록 수
+	var vCnt = 10;// 한페이지 목록 수
 	var check = true;
 	
 	var getData = function(){

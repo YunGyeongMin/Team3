@@ -15,21 +15,21 @@
 	<body>
 		<header>
 		<h1>
-			<a href="./index">LOGO</a>
+			<a href="/main/index">LOGO</a>
 		</h1>
 		<h2 class="show">
-			<a href="./loginTeam">Login</a>
+			<a href="/main/loginTeam">Login</a>
 		</h2>
 		<ul>
-			<li><a href="./mypage">회원정보</a></li>
+			<li><a href="/main/mypage">회원정보</a></li>
 			<li>
-				<a href="./shoppingBasket"><img src="/resources/images/shoppingCart.png" alt="장바구니"></a>
+				<a href="/main/shoppingBasket"><img src="/resources/images/shoppingCart.png" alt="장바구니"></a>
 			</li>
 			<li>
-				<a href="./mypageMain">OOO님</a>
+				<a href="/main/mypageMain">OOO님</a>
 			</li>
 		</ul>
-		<h2><a href="./admin">Admin</a></h2>
+		<h2><a href="/main/admin">Admin</a></h2>
 		
 	</header>
 		
@@ -45,9 +45,9 @@
 		   	</ul>
 		   <div>
 		   	<ul>
-				<li><a href= "./join">회원가입 </a></li>
-				<li><a href= "./id">아이디 찾기</a></li>
-				<li><a href= "./password">비밀번호 찾기</a></li>	
+				<li><a href= "/main/join">회원가입 </a></li>
+				<li><a href= "/main/id">아이디 찾기</a></li>
+				<li><a href= "/main/password">비밀번호 찾기</a></li>	
 			 </ul>   
 		   </div>
 		   </div>

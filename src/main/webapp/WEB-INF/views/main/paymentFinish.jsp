@@ -9,17 +9,17 @@
 <link rel="stylesheet" href="/resources/css/reset.css" />
 <link rel="stylesheet" href="/resources/css/commonlayout.css" />
 <link rel="stylesheet" href="/resources/css/paymentFinish.css" />
+<!-- <script type="text/javascript" src="/resources/js/u2/main.js"></script> -->
 </head>
 <body>
 	<c:import url="/header" />
 	<section>
 		<div>
 			<h2>결제에 성공하셨습니다.</h2>
-			<span><a href="./mypageMain">주문내역</a></span>
-			<span><a href="./index">홈으로</a></span>
+			<span><a href="/main/mypageMain">주문내역</a></span>
+			<span><a href="/main/index">홈으로</a></span>
 		</div>
 	</section>
 	<c:import url="/footer" />
-	<script type="text/javascript" src="/resources/js/main.js"></script>
 </body>
 </html>

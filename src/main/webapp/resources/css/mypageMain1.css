@@ -1,4 +1,9 @@
 @charset "UTF-8";
+input[type="checkbox"] {
+	width: 0.8rem;
+    height: 0.8rem;
+    margin-top: -0.01rem;
+}
 .ova ul:after {display: table; content: ""; clear: both;}
 .bg1 {background-color: black; font-weight: bold; color: white; }
 section li {box-sizing: border-box;}
@@ -40,7 +45,7 @@ section li {float: left; text-align: center; font-size:0.6rem;
 padding-left: 0.2rem;}
 
 
-.list1-2 li {width: calc(100% / 8); border: 0; padding: 1rem 0;}
+.list1-2 li {width: calc(100% / 7); border: 0; padding: 1rem 0;}
 .list1-2 .li2 {width: calc((100% / 8) * 2); border: 0; padding: 1rem 0;}
 .list1-2 .li1 {width: calc(100% / 10); border: 0; padding: 1rem 0;}
  

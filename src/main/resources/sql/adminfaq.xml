@@ -46,4 +46,53 @@
 					FROM `faq`
 					WHERE `process` = 'Y' 
 	</select>
+<!-- 	미처리정렬 -->	
+    <select id="processN" resultType="Map">
+		SELECT f.no, f.title, f.content, f.`process`,
+		       DATE_FORMAT(f.reg, '%Y-%m-%d %H:%i:%s') AS reg,
+		       u.name,
+		       a.content AS content2,
+		       u2.name AS name2,
+		       DATE_FORMAT(a.reg, '%Y-%m-%d %H:%i:%s') AS reg2,
+		       u.`no` AS uno
+			  FROM `faq` AS f 
+			  INNER JOIN `user` AS u
+			  ON (u.delYn = 'N'
+			  AND f.uno = u.no)
+			  LEFT OUTER JOIN `adminfaq` AS a
+			  ON (f.`no` = a.fno)
+			  LEFT OUTER JOIN `user` AS u2
+			  ON (u2.delYn = 'N'
+			  AND a.uno = u2.`no`)
+			  WHERE f.delYn = 'N'
+			  AND f.`process` = 'N' 
+			  order BY `no` DESC
+    </select>	
+<!-- 처리완료 정렬 -->	
+	<select id="processY" resultType="Map">
+		SELECT f.no, f.title, f.content, f.`process`,
+		       DATE_FORMAT(f.reg, '%Y-%m-%d %H:%i:%s') AS reg,
+		       u.name,
+		       a.content AS content2,
+		       u2.name AS name2,
+		       DATE_FORMAT(a.reg, '%Y-%m-%d %H:%i:%s') AS reg2,
+		       u.`no` AS uno
+			  FROM `faq` AS f 
+			  INNER JOIN `user` AS u
+			  ON (u.delYn = 'N'
+			  AND f.uno = u.no)
+			  LEFT OUTER JOIN `adminfaq` AS a
+			  ON (f.`no` = a.fno)
+			  LEFT OUTER JOIN `user` AS u2
+			  ON (u2.delYn = 'N'
+			  AND a.uno = u2.`no`)
+			  WHERE f.delYn = 'N'
+			  AND f.`process` = 'Y' 
+			  order BY `no` DESC
+	</select>
+	
+	<update id="setProcess" parameterType="kr.gudi.adminfaq.AfaqBean">
+		UPDATE faq SET `process` = 'Y' WHERE `no` = #{fno}
+	</update>
+	
 </mapper>

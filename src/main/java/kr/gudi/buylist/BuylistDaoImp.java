@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.gudi.login.UserBean;
+
 @Repository
 public class BuylistDaoImp implements BuylistDao {
 
@@ -28,23 +30,23 @@ public class BuylistDaoImp implements BuylistDao {
    }
    
    @Override
-   public Map<String, Object> getblist() {
-	   return session.selectOne("buylist.getblist");
+   public List<Map<String, Object>> getblist(UserBean ub) {
+	   return session.selectList("buylist.getblist",ub);
 	}
 
 	@Override
-	public Map<String, Object> getomonth() {
-		return session.selectOne("buylist.getomonth");
+	public List<Map<String, Object>> getomonth(UserBean ub) {
+		return session.selectList("buylist.getomonth",ub);
 	}
 	
 	@Override
-	public Map<String, Object> gettmonth() {
-		return session.selectOne("buylist.gettmonth");
+	public List<Map<String, Object>> gettmonth(UserBean ub) {
+		return session.selectList("buylist.gettmonth",ub);
 	}
 	
 	@Override
-	public Map<String, Object> getsmonth() {
-		return session.selectOne("buylist.getsmonth");
+	public List<Map<String, Object>> getsmonth(UserBean ub) {
+		return session.selectList("buylist.getsmonth",ub);
 	}
 
 	@Override

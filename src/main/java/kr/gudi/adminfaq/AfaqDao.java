@@ -10,4 +10,8 @@ public interface AfaqDao {
 	public Map<String, Object> getquestion();
 	public Map<String, Object> getuquestion();
 	public Map<String, Object> getInquiry();
+	public List<Map<String, Object>> processN();
+	public List<Map<String, Object>> processY();
+	public int setProcess(AfaqBean ab);
+	
 }

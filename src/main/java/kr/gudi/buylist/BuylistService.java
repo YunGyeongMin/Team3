@@ -3,6 +3,8 @@ package kr.gudi.buylist;
 import java.util.List;
 import java.util.Map;
 
+import kr.gudi.login.UserBean;
+
 public interface BuylistService {
    
    // 교환 환불 
@@ -15,7 +17,7 @@ public interface BuylistService {
    public int setcancellist(BuylistBean bb);
    
    //날짜별 구매 내역 
-   public List<Map<String, Object>> getMypageMain();
+   public List<Map<String, Object>> getMypageMain(String param,UserBean ub);
    
    public int uporder(BuylistBean bb);
 }

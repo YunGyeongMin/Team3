@@ -7,6 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.gudi.login.UserBean;
+
 @Service
 public class BuylistServiceImp implements BuylistService {
 
@@ -28,14 +30,21 @@ public class BuylistServiceImp implements BuylistService {
    }
 
    @Override
-	public List<Map<String, Object>> getMypageMain() {
-		List<Map<String, Object>> getBuyList = new ArrayList<Map<String, Object>>();
-		getBuyList.add(buylistDao.getblist());
-		getBuyList.add(buylistDao.getomonth());
-		getBuyList.add(buylistDao.gettmonth()); 
-		getBuyList.add(buylistDao.getsmonth());
-		return getBuyList;
+	public List<Map<String, Object>> getMypageMain(String param, UserBean ub) {
+	   List<Map<String, Object>> getBuyList = new ArrayList<Map<String, Object>>();
+	   switch (param) {
+	   case "15": 
+		   return buylistDao.getblist(ub);
+		case "1":
+			return buylistDao.getomonth(ub);
+		case "3":
+			return buylistDao.gettmonth(ub); 
+		case "6":
+			return buylistDao.getsmonth(ub);
+		default:
+			return null;
 	}
+}
 
 	@Override
 	public int uporder(BuylistBean bb) {

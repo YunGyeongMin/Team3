@@ -24,7 +24,11 @@ public class AfaqServiceImp implements AfaqService {
 	@Override
 	public int setAfaq(AfaqBean ab) {
 		System.out.println("service :" + ab);
-		return afaqDao.setAfaq(ab);
+		int state = afaqDao.setAfaq(ab);
+		if(state == 1) {
+			state = afaqDao.setProcess(ab);
+		}
+		return state;
 	}
 
 	@Override
@@ -34,6 +38,16 @@ public class AfaqServiceImp implements AfaqService {
 		getInquirylist.add(afaqDao.getuquestion());
 		getInquirylist.add(afaqDao.getInquiry());
 		return getInquirylist;
+	}
+
+	@Override
+	public List<Map<String, Object>> processN() {
+		return afaqDao.processN();
+	}
+
+	@Override
+	public List<Map<String, Object>> processY() {
+		return afaqDao.processY();
 	}
 
 	

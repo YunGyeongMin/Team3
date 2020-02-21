@@ -38,4 +38,19 @@ public class AfaqDaoImp implements AfaqDao {
 		return session.selectOne("adminfaq.getInquiry");
 	}
 
+	@Override
+	public List<Map<String, Object>> processN() {
+		return  session.selectList("adminfaq.processN");
+	}
+
+	@Override
+	public List<Map<String, Object>> processY() {
+		return  session.selectList("adminfaq.processY");
+	}
+
+	@Override
+	public int setProcess(AfaqBean ab) {
+		return session.update("adminfaq.setProcess", ab);
+	}
+
 }
