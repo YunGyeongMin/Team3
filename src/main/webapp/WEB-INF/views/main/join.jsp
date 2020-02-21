@@ -16,9 +16,6 @@
 <script src="/resources/js/u3/join.js"></script>
 <script type="text/javascript" src="/resources/js/u3/mypage.js"></script>
 </head>
-<body>
-
-	</head>
  <body>
  <header>
 		<h1>

@@ -19,7 +19,7 @@ var UserListView = function(data){
 		var html = `
 					<ul>
 						<li class = "li_tatle user_inventory_li1"><input type = "checkbox"></li>
-						<li class = "user_inventory_li1 userNo">${data[i].no}</li>
+						<li class = "user_inventory_li1">${data[i].no}</li>
 						<li class = "user_inventory_li2">${gender}</li>
 						<li class = "user_inventory_li3">${data[i].name}</li>
 						<li class = "user_inventory_li3">
@@ -45,10 +45,8 @@ var UserListEvent = function(){
 	$("#UserList ul select").change(function(){
 		var index = $("#UserList ul select").index(this);
 		var $target = $("#UserList ul select").eq(index);
-		var uno = $target.parent().find(".uno").text();
-		console.log(uno);
 		var params = {
-			no : $("#UserList .user_inventory_li3").eq(index).attr("data-key"),
+			no : $target.parent().parent().children('.user').attr("data-key"),
 			sector : $target.val()
 		};
 		console.log(params);

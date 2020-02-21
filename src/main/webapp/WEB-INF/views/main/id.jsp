@@ -15,10 +15,11 @@
 
 </head>
 <body>
-</head>
- <body>
- <c:import url="/header" />
- 
+<header>
+		<h1>
+			<a href="/main/index">LOGO</a>
+		</h1>
+</header>
 <section> 
 		<form id ="idfind">
 <!-- 			<h3>아이디 찾기</h3> -->

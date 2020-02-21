@@ -30,6 +30,11 @@ $(document).ready(function(){
          var data = d.list;
          $("#order_dlist").empty();
          for(var i = 0; i < data.length; i++){
+        	 if(data[i].process === "S")	data[i].process = "결제완료";
+         	 if(data[i].process === "D")	data[i].process = "배송중";
+         	 if(data[i].process === "DS")	data[i].process = "배송완료";
+         	 if(data[i].process === "R")	data[i].process = "반품";
+         	 if(data[i].process === "C")	data[i].process = "교환";
             var cstate = "처리완료";
             if(data[i].cstate == "I") {
                cstate = "처리중";
