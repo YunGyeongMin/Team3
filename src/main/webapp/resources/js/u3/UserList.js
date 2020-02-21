@@ -17,10 +17,9 @@ var UserListView = function(data){
 			gender = "남성";
 		}
 		var html = `
-		
 					<ul>
 						<li class = "li_tatle user_inventory_li1"><input type = "checkbox"></li>
-						<li class = "user_inventory_li1">${data[i].no}</li>
+						<li class = "user_inventory_li1 userNo">${data[i].no}</li>
 						<li class = "user_inventory_li2">${gender}</li>
 						<li class = "user_inventory_li3">${data[i].name}</li>
 						<li class = "user_inventory_li3">
@@ -32,7 +31,6 @@ var UserListView = function(data){
 						<li class = "user_inventory_li3 user" data-key="${data[i].no}">회원정보</li>
 						<li class = "user_inventory_li3">${data[i].reg}</li>
 					</ul>
-					
 				   `;
 		$("#UserList").append(html);
 		$("#UserList ul select").eq(i).val(data[i].sector);
@@ -47,7 +45,8 @@ var UserListEvent = function(){
 	$("#UserList ul select").change(function(){
 		var index = $("#UserList ul select").index(this);
 		var $target = $("#UserList ul select").eq(index);
-		console.log($target)
+		var uno = $target.parent().find(".uno").text();
+		console.log(uno);
 		var params = {
 			no : $("#UserList .user_inventory_li3").eq(index).attr("data-key"),
 			sector : $target.val()

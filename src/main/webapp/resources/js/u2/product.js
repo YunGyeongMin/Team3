@@ -78,7 +78,7 @@ var fun_Han = function(){
 	            cnt++;
 	        }
 	    }
-	    if(chkbox.length === 0)	alert("컬러를 선택해 주세요.");
+	    if(cnt === 0)	alert("컬러를 선택해 주세요.");
 	    e.preventDefault();
 	    var form = new FormData();
 	    form.append("tImg", $("#thumbnailImg")[0].files[0]);
@@ -122,7 +122,7 @@ var fun_Han = function(){
 	            cnt++;
 	        }
 	    }
-	    if(chkbox.length === 0)	alert("컬러를 선택해 주세요.");
+	    if(cnt === 0)	alert("컬러를 선택해 주세요.");
 	    e.preventDefault();
 	    params = {
 	    	no: $("#upno").val(),
