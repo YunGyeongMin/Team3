@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="faq">
+<!-- faq등록	 -->
+	<insert id="setFaq" parameterType="kr.gudi.faq.FaqBean">
+		INSERT INTO `faq` (`title`, `uno`, `content`) 
+        VALUES (#{title}, #{uno}, #{content})
+	</insert>
+<!-- faq 가져오기	페이징 처리 -->
+	<select id="getFaq" parameterType="kr.gudi.faq.PaggingBean" resultType="Map">
+		SELECT f.no, f.title, f.content, f.`process`, 
+		       DATE_FORMAT(f.reg, '%Y-%m-%d %H:%i:%s') AS reg,
+		       u.name,
+		       a.content AS content2,
+		       u2.name AS name2,
+		       DATE_FORMAT(a.reg, '%Y-%m-%d %H:%i:%s') AS reg2
+		  FROM `faq` AS f 
+		  INNER JOIN `user` AS u
+		  ON (u.delYn = 'N'
+		  AND f.uno = u.no)
+		  LEFT OUTER JOIN `adminfaq` AS a
+		  ON (f.`no` = a.fno)
+		  LEFT OUTER JOIN `user` AS u2
+		  ON (u2.delYn = 'N'
+		  AND a.uno = u2.`no`)
+		 WHERE f.delYn = 'N'
+		 order BY 1 desc
+ 		 LIMIT #{startPoint}, #{vCnt}
+	</select>
+<!-- 	총 게시글 갯수 출력 -->
+	<select id="countFaq" resultType="int">
+			SELECT COUNT(*) FROM `faq` WHERE delYn = 'N'
+	</select>
+</mapper>

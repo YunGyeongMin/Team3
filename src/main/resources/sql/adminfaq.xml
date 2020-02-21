@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminfaq">
+<!-- 	답변 등록 -->
+	<insert id="setafaq" parameterType="kr.gudi.adminfaq.AfaqBean">
+		INSERT INTO `adminfaq` (`fno`,	`content`,	`uno`)
+		VALUES (#{fno}, #{content}, #{uno})	        
+	</insert>
+<!-- 답변 가져오기	 -->
+	<select id="getadminfaq" resultType="Map">
+			   SELECT f.no, f.title, f.content, f.`process`,
+		       DATE_FORMAT(f.reg, '%Y-%m-%d %H:%i:%s') AS reg,
+		       u.name,
+		       a.content AS content2,
+		       u2.name AS name2,
+		       DATE_FORMAT(a.reg, '%Y-%m-%d %H:%i:%s') AS reg2,
+		       u.`no` AS uno
+			  FROM `faq` AS f 
+			  INNER JOIN `user` AS u
+			  ON (u.delYn = 'N'
+			  AND f.uno = u.no)
+			  LEFT OUTER JOIN `adminfaq` AS a
+			  ON (f.`no` = a.fno)
+			  LEFT OUTER JOIN `user` AS u2
+			  ON (u2.delYn = 'N'
+			  AND a.uno = u2.`no`)
+			  WHERE f.delYn = 'N' 
+			  order BY `no` DESC     		
+	</select>
+<!-- 	전체 문의  -->
+	<select id="getquestion" resultType="Map">
+				SELECT COUNT(*) as getquestion
+				FROM `faq`	
+	</select>
+<!-- 	미처리 -->
+	<select id="getuquestion" resultType="Map">
+					SELECT COUNT(*) as getuquestion
+					FROM `faq`
+					WHERE `process` = 'N' 
+	</select>
+<!-- 	문의완료 -->
+	<select id="getInquiry" resultType="Map">
+					SELECT COUNT(*) as getInquiry
+					FROM `faq`
+					WHERE `process` = 'Y' 
+	</select>
+</mapper>

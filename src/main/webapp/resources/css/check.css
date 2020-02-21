@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/* 중복 체크 css*/
+
+/* 이메일 중복 체크 , 비밀 번호 제한  */
+#emailcheck1, #emailcheck2, #emailcheck3,  #emailcheck4, 
+#password1 , #password2 , #password3 , #password4 ,  #password5,
+#telcheck, #check {
+		font-size: 0.5rem; 
+		text-decoration: none;
+		display: none;
+	}
+#emailcheck1 , #emailcheck3 ,
+#password1 , #password2 , #password3 , #password4 ,#telcheck  {color: red;}
+
+#emailcheck2, #password5 {color: blue;}
+
+
+

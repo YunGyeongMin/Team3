@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buylist">
+<!-- 주문 번호 선택 후 교환 및 환불 신청 -->
+	<insert id="setcancel" parameterType="kr.gudi.buylist.BuylistBean">
+		INSERT INTO `cancel` (`ono`, `exchange`, `reason`) 
+        VALUES (#{ono}, #{exchange}, #{reason})       	
+	</insert>
+<!--    처리과정 변경 -->
+   <update id="uporder" parameterType="kr.gudi.buylist.BuylistBean">
+   			UPDATE `order` SET `process` = #{exchange} WHERE `order`.`no` = #{ono};
+   </update>	
+<!--    구매내역 가져오기 -->
+   <select id="getcancel" parameterType="Map" resultType="Map">
+      SELECT o.`no` ,o.`pno` ,o.`uno` ,o.`cno` , o.`process` ,o.`payCB` ,  o.`color` ,
+       o.`quantity` , o.`sumPrice` , o.address1, o.address2, o.address3 , o.tel,
+       DATE_FORMAT(o.reg, '%Y-%m-%d') AS reg , p.`sname`
+       FROM `order` AS o
+       INNER JOIN `product` AS p
+       ON (p.`no` = o.pno)    
+       WHERE o.uno= #{uno}
+       <if test="no != null">
+       		and o.no = #{no}
+       </if>
+   </select>
+<!--    15일전 구매목록 가져오기 -->
+   <select id="getblist" resultType="Map">
+   			SELECT * FROM `order` WHERE `reg` > (NOW() - INTERVAL 15 DAY);
+   </select>
+<!--    1달전 구매목록 가져오기 -->
+   <select id="getomonth" resultType="Map">
+   			SELECT * FROM `order` WHERE `reg` > (NOW() - INTERVAL 1 MONTH);
+   </select>
+<!--     3달전 구매목록 가져오기 -->
+   <select id="gettmonth" resultType="Map">
+   			SELECT * FROM `order` WHERE `reg` > (NOW() - INTERVAL 3 MONTH);
+   </select>
+<!--     6달전 구매목록 가져오기 -->
+   <select id="getsmonth" resultType="Map">
+   			SELECT * FROM `order` WHERE `reg` > (NOW() - INTERVAL 6 MONTH);
+   </select>
+</mapper>

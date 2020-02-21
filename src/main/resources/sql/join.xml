@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="join">
+
+  <!-- 회원 등록 -->
+  <insert id="setUser" parameterType="kr.gudi.login.UserBean">
+  	INSERT INTO `user`  (`name` , `email` , `password` ,`birth` ,`gender`,`address1` , `address2` , `address3` , `tel`)
+				VALUES (#{name} , #{email} ,#{password} ,#{birth} ,#{gender} , #{address1} ,#{address2} ,#{address3}, #{tel} );  
+  </insert>
+  
+  <!-- 로그인 -->
+  <select id="getUser"  parameterType = "kr.gudi.login.UserBean"  resultType = "kr.gudi.login.UserBean"> 
+  		SELECT *  FROM `user` WHERE `delYn` = 'N' 
+  		<if test="email != null">
+  			AND `email` = #{email}  
+  		</if>
+  		<if test="password != null">
+  			AND `password` = #{password} 
+  		</if>
+  </select>
+  
+<!--  이메일 중복 체크 -->
+  <select id="emailcheck" parameterType = "kr.gudi.login.UserBean"  resultType = "Integer">
+  	SELECT COUNT(*) FROM `user`
+      WHERE
+          `email`=  #{email}
+  </select>
+  
+  <!--   아이디 찾기  -->
+  <select id="userFindId" parameterType = "kr.gudi.login.UserBean" resultType= "kr.gudi.login.UserBean"> 
+  		SELECT email, tel from user WHERE `tel` =  #{tel}
+  </select>
+  
+ <!--  mypage 정보  -->
+  <select id="getUserList" parameterType = "kr.gudi.login.UserBean"  resultType = "kr.gudi.login.UserBean">
+    SELECT 	`name`, `email`, `password`,`birth`,`gender`,`address1`, `address2`, `address3`, `tel`
+			 FROM `user` WHERE  `no` =  #{no};
+  </select>
+   
+   <!-- 회원 수정 -->
+  <update id="updateUser" parameterType = "kr.gudi.login.UserBean" >
+		UPDATE `user` SET   `name` = #{name},   `birth`= #{birth} , `gender` = #{gender} , `email` = 	#{email},
+							`address1` = #{address1} , `address2` = #{address2} , `address3` = #{address3} ,  `tel` = #{tel}
+		<if test="password != null">
+			, `password` = #{password}
+		</if>					
+		WHERE 	`no` = 	#{no}
+  </update>
+  
+  <!-- 회원 탈퇴 -->
+  <update id="deleteUser"  parameterType = "kr.gudi.login.UserBean"  > 
+  		UPDATE  `user` SET   `delYn` = 'Y' 
+		WHERE 	`email` =  #{email}  AND `password` = #{password};	
+  </update>
+  
+  <!-- 회원 비밀번호 -->
+  <update id="upPassword"  parameterType = "kr.gudi.login.UserBean"  > 
+  		UPDATE  `user` SET   `password` = #{password}
+		WHERE 	`email` = #{email} 
+		  AND   `name`  = #{name}	
+  </update>
+  
+  <!-- 회원 전체 목록  -->
+  <select id="UserList" parameterType = "kr.gudi.login.UserBean" resultType= "kr.gudi.login.UserBean">
+	SELECT `no`, `gender`, `name`, `sector`, 
+			 DATE_FORMAT(`reg`, '%Y-%m-%d') AS reg
+	  FROM `user` 
+	 WHERE 1 = 1
+	 <if test="name != null">
+	 	AND name LIKE '%${name}%' 
+	 </if>
+	 ORDER BY `no` desc
+  </select>
+  
+  <!-- 회원  & 관리자  -->
+  <update id="UpdateSector" parameterType="kr.gudi.login.UserBean">
+  	UPDATE `user` SET
+  	`sector` = #{sector}
+  	WHERE `no` = #{no}
+  </update>
+  
+  <!--   회원 관리 수  -->
+  <select id="Usernum" resultType = "Map">
+    SELECT  COUNT(*) as Usernum FROM `user` WHERE `delYn` = 'N' 
+  </select>
+  
+  <select id="UserF" resultType = "Map">
+    SELECT  COUNT(*) as UserF FROM `user` WHERE `delYn` = 'N'  AND  gender = 'F' 
+  </select>
+  
+  <select id="UserM" resultType = "Map">
+    SELECT  COUNT(*) as UserM FROM `user` WHERE `delYn` = 'N'  AND  gender = 'M' 
+  </select>
+  
+<!-- 회원 관리자 정렬 -->
+<!-- 회원 정렬 -->
+	<select id="UserFind" parameterType = "kr.gudi.login.UserBean" resultType= "kr.gudi.login.UserBean"  >
+		SELECT `no`, `gender`, `name`, `sector`, 
+		  DATE_FORMAT(`reg`, '%Y-%m-%d') AS reg
+		FROM `user` WHERE sector LIKE '%C%' ORDER BY `no` desc
+	
+   </select>
+   
+<!-- 관리자 정렬 -->  
+   <select id="AdminFind" parameterType = "kr.gudi.login.UserBean" resultType= "kr.gudi.login.UserBean" >
+     SELECT `no`, `gender`, `name`, `sector`, 
+		 DATE_FORMAT(`reg`, '%Y-%m-%d') AS reg
+		 FROM `user` WHERE sector LIKE '%A%' ORDER BY `no` desc
+   </select>
+  
+  <!-- 방문자 카운터 -->
+  <insert id="loginCount" parameterType= "kr.gudi.login.UserBean">
+  	INSERT INTO login
+		(`uno`,`uname`)
+	 VALUES 
+	 	(#{no},#{name})
+  </insert>
+
+</mapper> 
