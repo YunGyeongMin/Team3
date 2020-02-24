@@ -35,7 +35,7 @@
 		</div>
 			<h3 class = "subtitle">주문목록</h3>
 			<div class = "search">
-				<form>
+				<form> 
 					<button id = "open2" type="button" class = "search_array" onclick="openModal('.M2')">결제정보 등록</button>
 					<button type="button" id = "deposit_range"class = "search_array">무통장 정렬</button>
 					<input id = "order_search_text" type="text" placeholder="회원명을 입력하세요." class= "searchbar"/>
