@@ -14,6 +14,14 @@
         <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script src="/resources/js/u3/mypage.js"></script>
         <script src="/resources/js/u4/payment.js"></script>
+        <script type="text/javascript">
+ 			var url = location.href;
+			var user = '${sessionScope.User.no}';
+			if(user === ''){
+				alert("로그인 후 이용해주시기바랍니다.");
+				location.href = "./loginTeam";
+			}
+ 		</script>
     </head>
     <body>
         <c:import url="/header" />
