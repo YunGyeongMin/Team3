@@ -8,7 +8,10 @@ function setProduct() {
 function repairProduct() {
     var no = $('input:radio[name="chk"]:checked').val();
     modal = $(".M3");
-    if (no === undefined) alert("수정할 상품을 선택하세요!");
+    if (no === undefined){
+    	alert("수정할 상품을 선택하세요!");
+    	return;
+    }
     else modal.removeClass("hidden");
     overlay = document.getElementsByClassName("modal__overlay");
     openButton = document.getElementById("open");
@@ -78,7 +81,10 @@ var fun_Han = function(){
 	            cnt++;
 	        }
 	    }
-	    if(cnt === 0)	alert("컬러를 선택해 주세요.");
+	    if(cnt === 0){
+	    	alert("컬러를 선택해 주세요.");
+	    	return ;
+	    }
 	    e.preventDefault();
 	    var form = new FormData();
 	    form.append("tImg", $("#thumbnailImg")[0].files[0]);
@@ -122,7 +128,10 @@ var fun_Han = function(){
 	            cnt++;
 	        }
 	    }
-	    if(cnt === 0)	alert("컬러를 선택해 주세요.");
+	    if(cnt === 0){
+	    	alert("컬러를 선택해 주세요.");
+	    	return ;
+	    }
 	    e.preventDefault();
 	    params = {
 	    	no: $("#upno").val(),

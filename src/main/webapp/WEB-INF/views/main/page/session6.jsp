@@ -38,7 +38,7 @@
 				<form>
 					<button id = "open2" type="button" class = "search_array" onclick="openModal('.M2')">결제정보 등록</button>
 					<button type="button" id = "deposit_range"class = "search_array">무통장 정렬</button>
-					<input id = "order_search_text" type="text" placeholder="회원명 또는 주문번호를 입력하세요." class= "searchbar"/>
+					<input id = "order_search_text" type="text" placeholder="회원명을 입력하세요." class= "searchbar"/>
 					<button type="button" id = "order_search" class = "search_btn">검색</button>
 				</form>
 			</div>	
